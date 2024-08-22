@@ -8,6 +8,7 @@ const urlRexExp = new RegExp(
   /https?:\/\/(www.)?[-a-zA-Z0-9@:%._+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&\/\/=]*)/gi
 );
 
+try {
 const url = input.match(urlRexExp)[0];
 const hash = new URL(url).hash;
 const initData = urlParseHashParams(hash).tgWebAppData;
@@ -60,3 +61,6 @@ async function main() {
 }
 
 main();
+} catch(err){
+  console.log("error")
+}
