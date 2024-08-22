@@ -1,0 +1,19 @@
+name: Run Node.js script on a schedule
+
+on:
+  push:
+  schedule:
+    - cron: "0 */3 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+      - name: Run script
+        env:
+          TOKEN: ${{ secrets.TOKEN }} 
+        run: npm start
