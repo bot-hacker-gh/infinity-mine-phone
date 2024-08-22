@@ -54,7 +54,7 @@ async function main() {
     await user.login();
     await user.sync();
   } catch (err) {
-    console.log(err);
+    console.log("error");
   }
   console.log("completed");
 }
